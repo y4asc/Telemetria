@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-is5dord3b@te3+65rl#(+=^k$&re266oql%4^0_r0ry06pnivy'
+SECRET_KEY = 'django-insecure-x&ua17$9i$l_39x971!60ks(m3eh)cwddo#t@1^7!x0)3jnlu='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
+    'corsheaders',
     'api_telemetria',
 ]
 
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -80,10 +83,10 @@ DATABASES = {
         'NAME': 'telemetria',
         'USER': 'root',
         'PASSWORD': 'Senai901',
-        'HOST': 'localhost',  # Ou o IP do servidor MySQL
-        'PORT': '3306',  # Porta padrão do MySQL
+        'HOST': 'localhost',
+        'PORT': '3306',      
         'OPTIONS': {
-            'charset': 'utf8mb4',  # Para suportar caracteres especiais
+            'charset': 'utf8mb4',  
         },
     }
 }
@@ -113,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'Ameria/Sao_Paulo'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -129,3 +132,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ALL_ORIGINS = True
